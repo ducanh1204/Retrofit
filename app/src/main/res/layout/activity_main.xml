@@ -20,6 +20,13 @@
         android:text="POST" />
 
     <Button
+        android:id="@+id/btnGetAccessToken"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get access token" />
+
+
+    <Button
         android:id="@+id/btnTestAuthorization1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

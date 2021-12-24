@@ -29,7 +29,7 @@ import vm.poly.edu.retrofit.network.RetrofitService;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvData;
-    private Button btnGET, btnPOST, btnTestAuthorization1, btnTestAuthorization2;
+    private Button btnGET, btnPOST,btnGetAccessToken, btnTestAuthorization1, btnTestAuthorization2;
     private String accessToken;
 
     @Override
@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         tvData = findViewById(R.id.tvData);
         btnGET = findViewById(R.id.btnGET);
         btnPOST = findViewById(R.id.btnPOST);
+        btnGetAccessToken = findViewById(R.id.btnGetAccessToken);
         btnTestAuthorization1 = findViewById(R.id.btnTestAuthorization1);
         btnTestAuthorization2 = findViewById(R.id.btnTestAuthorization2);
-
         btnGET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        btnGetAccessToken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAccessToken();
+            }
+        });
         btnTestAuthorization1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                 demoAuthorization2();
             }
         });
-        getAccessToken();
     }
 
     private void getAccessToken() {
@@ -115,9 +120,8 @@ public class MainActivity extends AppCompatActivity {
         retrofitService.getAccessToken("admin","password","123456").enqueue(new Callback<ResultToken>() {
             @Override
             public void onResponse(Call<ResultToken> call, Response<ResultToken> response) {
-                Log.e("access token",response.body().getAccessToken());
                 accessToken = response.body().getAccessToken();
-                Toast.makeText(MainActivity.this, accessToken, Toast.LENGTH_SHORT).show();
+                tvData.setText(accessToken);
             }
 
             @Override
