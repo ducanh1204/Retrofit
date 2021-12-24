@@ -19,6 +19,17 @@
         android:layout_height="wrap_content"
         android:text="POST" />
 
+    <Button
+        android:id="@+id/btnTestAuthorization1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Authorization 1" />
+    <Button
+        android:id="@+id/btnTestAuthorization2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Authorization 2" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

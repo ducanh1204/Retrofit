@@ -1,10 +1,10 @@
 
-package vm.poly.edu.retrofit;
+package vm.poly.edu.retrofit.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+public class Model {
 
     @SerializedName("userId")
     @Expose
